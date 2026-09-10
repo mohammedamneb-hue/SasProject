@@ -293,3 +293,50 @@ function AcheterUnTicket(buy) {
     }
     // return tickets;
 }
+function afficherTickets(
+
+
+
+
+) {
+
+    if (tickets.length === 0) {
+        console.log("Aucun ticket enregistré.");
+        return;
+    }
+
+    console.log("=== TICKETS ===");
+
+    for (let i = 0; i < tickets.length; i++) {
+        let ticket = tickets[i]
+        console.log("Ticket #" + ticket.id);
+        console.log("Passager : " + ticket.passangername);
+        console.log("Trajet : " + ticket.tripId);
+        console.log("Place : " + ticket.Seatnumber);
+        console.log("Prix : " + ticket.price + " DH");
+    }
+
+}
+
+function annulerUnTicket() {
+    ID = prompt('tapez ID:  ');
+    for (let i = 0; i < tickets.length; i++) {
+        if (ID == tickets[i].id) {
+            tickets.splice(i, 1)
+            console.log("Ticket annulé avec succès")
+            return;
+        }
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
