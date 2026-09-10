@@ -219,7 +219,7 @@ do {
             // console.log("4. Annuler un ticket")
             break;
         case 5:
-            RechercherUntTicket
+            RechercherUnTicket()
             // console.log("5. Rechercher un ticket")
             break;
         case 6:
@@ -332,6 +332,22 @@ function annulerUnTicket() {
     }
 }
 
+function RechercherUnTicket() {
+    const passager = prompt("Taper Nom: ");
+
+    for (let i = 0; i < tickets.length; i++) {
+
+        if (passager == tickets[i].passangername) {
+            console.log("Ticket #" + tickets[i].id);
+            console.log("Passager : " + tickets[i].passangername);
+            console.log("Trajet : " + tickets[i].tripId);
+            console.log("Place : " + tickets[i].Seatnumber);
+            console.log("Prix : " + tickets[i].price + " DH");
+            return;
+        }
+    }
+
+    console.log("Aucun ticket trouvé");
 
 
 
@@ -340,3 +356,11 @@ function annulerUnTicket() {
 
 
 
+
+
+
+
+
+
+
+}
