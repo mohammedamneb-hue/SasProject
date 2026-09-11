@@ -223,7 +223,8 @@ do {
             // console.log("5. Rechercher un ticket")
             break;
         case 6:
-            console.log("6. Filtrer les trajets")
+            FiltrerLesTrajets()
+            // console.log("6. Filtrer les trajets")
             break;
         case 7:
             console.log("7. Trier les trajets")
@@ -287,18 +288,11 @@ function AcheterUnTicket(buy) {
                 console.log("Prix : " + ticket.price + " DH");
                 tickets[tickets.length] = ticket;
             }
-
             break;
         }
     }
-    // return tickets;
 }
-function afficherTickets(
-
-
-
-
-) {
+function afficherTickets() {
 
     if (tickets.length === 0) {
         console.log("Aucun ticket enregistré.");
@@ -319,16 +313,13 @@ function afficherTickets(
 }
 
 function annulerUnTicket() {
-    ID = prompt('tapez ID:  ');
+   const ID = prompt('tapez ID:  ');
     for (let i = 0; i < tickets.length; i++) {
         if (ID == tickets[i].id) {
             tickets.splice(i, 1)
             console.log("Ticket annulé avec succès")
             return;
         }
-
-
-
     }
 }
 
@@ -343,24 +334,31 @@ function RechercherUnTicket() {
             console.log("Trajet : " + tickets[i].tripId);
             console.log("Place : " + tickets[i].Seatnumber);
             console.log("Prix : " + tickets[i].price + " DH");
-            return;
+        }
+    }console.log("Aucun ticket trouvé");
+}
+
+
+
+
+function FiltrerLesTrajets() {
+    const trajet = prompt("Tapez Ville: ");
+    
+    for (let i = 0; i < trips.length; i++) {
+        if (trajet == trips[i].departure) {
+            console.log(trips[i].departure + " → " + trips[i].destination + " : " + trips[i].price)
         }
     }
-
-    console.log("Aucun ticket trouvé");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
