@@ -182,49 +182,44 @@ const trips = [
         availableSeats: 50
     }]
 
-console.log("1. Afficher les trajets")
-console.log("2. Acheter un ticket")
-console.log("3. Afficher les tickets")
-console.log("4. Annuler un ticket")
-console.log("5. Rechercher un ticket")
-console.log("6. Filtrer les trajets")
-console.log("7. Trier les trajets")
-console.log("0. Quitter")
 
 const prompt = require('prompt-sync')();
 do {
 
-    n = +prompt('train menu :  ');
+    console.log("1. Afficher les trajets")
+    console.log("2. Acheter un ticket")
+    console.log("3. Afficher les tickets")
+    console.log("4. Annuler un ticket")
+    console.log("5. Rechercher un ticket")
+    console.log("6. Filtrer les trajets")
+    console.log("7. Trier les trajets")
+    console.log("0. Quitter")
 
-    //let choix = +prompt("Entrez votre choix : ")
+   n = +prompt('train menu :  ');
+
+
     switch (n) {
         case 1:
-            // console.log("1. Afficher les trajets")
             AfficherLesTrajets();
             break;
 
         case 2:
 
             (AcheterUnTicket(trips))
-            // console.log("2. Acheter un ticket")
             break;
 
         case 3:
             afficherTickets()
-            // console.log("3. Afficher les tickets")
             break;
 
         case 4:
-            annulerUnTicket();
-            // console.log("4. Annuler un ticket")
+            annulerUnTicket()
             break;
         case 5:
             RechercherUnTicket()
-            // console.log("5. Rechercher un ticket")
             break;
         case 6:
             FiltrerLesTrajets()
-            // console.log("6. Filtrer les trajets")
             break;
         case 7:
             console.log("7. Trier les trajets")
@@ -236,7 +231,8 @@ do {
             console.log("choix invalide")
     }
 
-} while (n != 0)
+} 
+while (n != 0)
 
 
 
@@ -248,7 +244,7 @@ function AfficherLesTrajets() {
         console.log(
             `#${trips[i].id} ${trips[i].departure} → ${trips[i].destination}
 Depart : ${trips[i].departureTime}
-Arrivée :${trips[i].arrivalTime} 
+Arrivée :${trips[i].arrivalTime}
 Prix :${trips[i].price}
 Places disponibles : ${trips[i].availableSeats}`)
     }
@@ -313,14 +309,15 @@ function afficherTickets() {
 }
 
 function annulerUnTicket() {
-   const ID = prompt('tapez ID:  ');
+    const ID = prompt('tapez ID:  ');
     for (let i = 0; i < tickets.length; i++) {
         if (ID == tickets[i].id) {
             tickets.splice(i, 1)
             console.log("Ticket annulé avec succès")
             return;
         }
-    }
+    } console.log("Ticket introuvable.")
+
 }
 
 function RechercherUnTicket() {
@@ -335,7 +332,8 @@ function RechercherUnTicket() {
             console.log("Place : " + tickets[i].Seatnumber);
             console.log("Prix : " + tickets[i].price + " DH");
         }
-    }console.log("Aucun ticket trouvé");
+    } 
+    
 }
 
 
@@ -343,10 +341,11 @@ function RechercherUnTicket() {
 
 function FiltrerLesTrajets() {
     const trajet = prompt("Tapez Ville: ");
-    
+
     for (let i = 0; i < trips.length; i++) {
         if (trajet == trips[i].departure) {
-            console.log(trips[i].departure + " → " + trips[i].destination + " : " + trips[i].price)
+            console.log(trips[i].departure + " → " + trips[i].destination + " : " + trips[i].price + " DH")
+
         }
     }
 }
